@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipient name:</strong>
+  <%= @postcard.recipient_name %>
+</p>
+
+<p>
+  <strong>Recipient email:</strong>
+  <%= @postcard.recipient_email %>
+</p>
+
+<p>
+  <strong>Sender name:</strong>
+  <%= @postcard.sender_name %>
+</p>
+
+<p>
+  <strong>Sender email:</strong>
+  <%= @postcard.sender_email %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @postcard.message %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @postcard.image_url %>
+</p>
+
+<p>
+  <strong>Deliver on:</strong>
+  <%= @postcard.deliver_on %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @postcard.status %>
+</p>
+
+<%= link_to 'Edit', edit_postcard_path(@postcard) %> |
+<%= link_to 'Back', postcards_path %>
