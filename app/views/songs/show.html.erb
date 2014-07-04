@@ -1,69 +1,44 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Song -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Song %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @song.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @song.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:lyric) %></dt>
+      <dd><pre class="prettyprint"><%= @song.lyric %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:views) %></dt>
+      <dd><pre class="prettyprint"><%= @song.views %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:keywords) %></dt>
+      <dd><pre class="prettyprint"><%= @song.keywords %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:uploader) %></dt>
+      <dd><pre class="prettyprint"><%= @song.uploader %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:performer) %></dt>
+      <dd><pre class="prettyprint"><%= @song.performer %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:writer) %></dt>
+      <dd><pre class="prettyprint"><%= @song.writer %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:album) %></dt>
+      <dd><pre class="prettyprint"><%= @song.album %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:views_month) %></dt>
+      <dd><pre class="prettyprint"><%= @song.views_month %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:status) %></dt>
+      <dd><pre class="prettyprint"><%= @song.status %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:filename) %></dt>
+      <dd><pre class="prettyprint"><%= @song.filename %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Lyric:</strong>
-  <%= @song.lyric %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              songs_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_song_path(@song), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              song_path(@song),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Views:</strong>
-  <%= @song.views %>
-</p>
-
-<p>
-  <strong>Keywords:</strong>
-  <%= @song.keywords %>
-</p>
-
-<p>
-  <strong>Uploader:</strong>
-  <%= @song.uploader %>
-</p>
-
-<p>
-  <strong>Performer:</strong>
-  <%= @song.performer %>
-</p>
-
-<p>
-  <strong>Writer:</strong>
-  <%= @song.writer %>
-</p>
-
-<p>
-  <strong>Album:</strong>
-  <%= @song.album %>
-</p>
-
-<p>
-  <strong>Views month:</strong>
-  <%= @song.views_month %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @song.status %>
-</p>
-
-<p>
-  <strong>Filename:</strong>
-  <%= @song.filename %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @song.category %>
-</p>
-
-<p>
-  <strong>Postcard:</strong>
-  <%= @song.postcard %>
-</p>
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>

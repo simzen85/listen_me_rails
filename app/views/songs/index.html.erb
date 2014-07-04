@@ -1,28 +1,30 @@
-<h1>Listing songs</h1>
-
-<table>
+<%- model_class = Song -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Song %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Lyric</th>
-      <th>Views</th>
-      <th>Keywords</th>
-      <th>Uploader</th>
-      <th>Performer</th>
-      <th>Writer</th>
-      <th>Album</th>
-      <th>Views month</th>
-      <th>Status</th>
-      <th>Filename</th>
-      <th>Category</th>
-      <th>Postcard</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:lyric) %></th>
+      <th><%= model_class.human_attribute_name(:views) %></th>
+      <th><%= model_class.human_attribute_name(:keywords) %></th>
+      <th><%= model_class.human_attribute_name(:uploader) %></th>
+      <th><%= model_class.human_attribute_name(:performer) %></th>
+      <th><%= model_class.human_attribute_name(:writer) %></th>
+      <th><%= model_class.human_attribute_name(:album) %></th>
+      <th><%= model_class.human_attribute_name(:views_month) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:filename) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @songs.each do |song| %>
       <tr>
+        <td><%= song.id %></td>
         <td><%= song.name %></td>
         <td><%= song.lyric %></td>
         <td><%= song.views %></td>
@@ -34,16 +36,21 @@
         <td><%= song.views_month %></td>
         <td><%= song.status %></td>
         <td><%= song.filename %></td>
-        <td><%= song.category %></td>
-        <td><%= song.postcard %></td>
-        <td><%= link_to 'Show', song %></td>
-        <td><%= link_to 'Edit', edit_song_path(song) %></td>
-        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l song.created_at, format: :long %></td>
+        <td>
+          <%= link_to song_path(song), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to song_path(song), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Song', new_song_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_song_path,
+            :class => 'btn btn-primary' %>

@@ -1,23 +1,76 @@
-<%= simple_form_for(@song) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :lyric %>
-    <%= f.input :views %>
-    <%= f.input :keywords %>
-    <%= f.input :uploader %>
-    <%= f.input :performer %>
-    <%= f.input :writer %>
-    <%= f.input :album %>
-    <%= f.input :views_month %>
-    <%= f.input :status %>
-    <%= f.input :filename %>
-    <%= f.association :category %>
-    <%= f.association :postcard %>
+<%= form_for @song, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :lyric, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :lyric, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :views, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :views, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :keywords, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :keywords, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :uploader, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :uploader, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :performer, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :performer, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :writer, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :writer, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :album, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :album, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :views_month, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :views_month, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :status, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :status, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :filename, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :filename, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  songs_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
