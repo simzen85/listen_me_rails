@@ -1,4 +1,5 @@
 ActiveAdmin.register Postcard do
+  permit_params :recipient_name, :recipient_email, :sender_name, :sender_email, :message, :image_url, :deliver_on, :status
 
   
   # See permitted parameters documentation:
