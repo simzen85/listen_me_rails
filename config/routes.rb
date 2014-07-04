@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+
   resources :postcards
 
   devise_for :admin_users, ActiveAdmin::Devise.config
