@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @song.name %>
+</p>
+
+<p>
+  <strong>Lyric:</strong>
+  <%= @song.lyric %>
+</p>
+
+<p>
+  <strong>Views:</strong>
+  <%= @song.views %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @song.keywords %>
+</p>
+
+<p>
+  <strong>Uploader:</strong>
+  <%= @song.uploader %>
+</p>
+
+<p>
+  <strong>Performer:</strong>
+  <%= @song.performer %>
+</p>
+
+<p>
+  <strong>Writer:</strong>
+  <%= @song.writer %>
+</p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @song.album %>
+</p>
+
+<p>
+  <strong>Views month:</strong>
+  <%= @song.views_month %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @song.status %>
+</p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @song.filename %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @song.category %>
+</p>
+
+<p>
+  <strong>Postcard:</strong>
+  <%= @song.postcard %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
