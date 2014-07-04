@@ -1,4 +1,5 @@
 ActiveAdmin.register Song do
+  permit_params :name, :lyric, :views, :keywords, :uploader, :performer, :writer, :album, :views_month, :status, :filename
 
   
   # See permitted parameters documentation:
